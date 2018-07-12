@@ -24,4 +24,10 @@ public class MoviesResource {
         movieRepository.save(movie);
         return movieRepository.findAll();
     }
+
+    @DeleteMapping(value = "/delete/{id}")
+    public List<Movie> delete(@PathVariable("id") int id){
+        movieRepository.deleteById(id);
+        return movieRepository.findAll();
+    }
 }
