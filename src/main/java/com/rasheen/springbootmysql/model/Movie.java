@@ -9,7 +9,6 @@ import javax.persistence.Id;
 public class  Movie {
 
     @Id
-    @GeneratedValue
     @Column(name = "id")
     private Integer id;
     @Column(name = "title")
