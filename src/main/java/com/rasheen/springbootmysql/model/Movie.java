@@ -19,6 +19,8 @@ public class  Movie {
     private Integer year;
     @Column(name = "release_date")
     private String release_date;
+    @Column(name ="poster_url")
+    private String poster_url;
 
     public Movie(){
 
@@ -62,5 +64,13 @@ public class  Movie {
 
     public void setRelease_date(String release_date) {
         this.release_date = release_date;
+    }
+
+    public String getPoster_url() {
+        return poster_url;
+    }
+
+    public void setPoster_url(String poster_url) {
+        this.poster_url = poster_url;
     }
 }

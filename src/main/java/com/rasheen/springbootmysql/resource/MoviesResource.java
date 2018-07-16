@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/rest/movie")
@@ -33,7 +34,15 @@ public class MoviesResource {
         movieRepository.deleteById(id);
         return movieRepository.findAll();
     }
-    
+
+
+    @GetMapping(value = "/view/{id}")
+    public Optional<Movie> view(@PathVariable("id") int id){
+        movieRepository.findById(id);
+        return movieRepository.findById(id);
+    }
+
+
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Movie> update(@PathVariable("id") int id, @RequestBody Movie movie)
 
