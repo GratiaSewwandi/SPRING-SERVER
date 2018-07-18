@@ -17,6 +17,11 @@ public class MoviesResource {
     @Autowired
     MovieRepository movieRepository;
 
+    @GetMapping(value = "/details")
+    public List<Movie> getSpecific(){
+        return movieRepository.findAll();
+    };
+
     @GetMapping(value = "/all")
     public List<Movie> getAll(){
         return movieRepository.findAll();
@@ -41,7 +46,6 @@ public class MoviesResource {
         movieRepository.findById(id);
         return movieRepository.findById(id);
     }
-
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Movie> update(@PathVariable("id") int id, @RequestBody Movie movie)
